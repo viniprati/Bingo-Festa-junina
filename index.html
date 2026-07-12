@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo Festa Junina</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;900&family=Rye&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="party-flags top-flags" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <div class="diagonal-flags diagonal-flags-left" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="diagonal-flags diagonal-flags-right" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="diagonal-flags diagonal-flags-center" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="paper-streamers" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <main class="page-shell">
+        <header class="hero">
+            <p class="eyebrow">Ô trem bão, sô!</p>
+            <h1><span class="title-b">B</span>ingo do Arraiá</h1>
+            <p class="subtitle">Prepare a cartela, o milho e a torcida.</p>
+        </header>
+
+        <section class="draw-section" aria-labelledby="draw-title">
+            <div class="draw-copy">
+                <h2 id="draw-title">Sorteio da prenda</h2>
+                <p id="draw-status" class="draw-status">Nenhum número foi sorteado ainda.</p>
+            </div>
+
+            <div class="current-ball-container" aria-live="polite" aria-atomic="true">
+                <div id="current-ball" class="current-ball" aria-label="Número atual">
+                    <span id="current-letter" class="current-letter">?</span>
+                    <span id="current-number" class="current-number">--</span>
+                </div>
+            </div>
+
+            <div class="controls" aria-label="Controles do bingo">
+                <button id="draw-button" class="button button-primary" type="button">Sortear prenda</button>
+                <button id="rules-button" class="button button-secondary" type="button">Regras</button>
+                <button id="reset-button" class="button button-danger" type="button">Reiniciar</button>
+            </div>
+        </section>
+
+        <section class="history-section" aria-labelledby="history-title">
+            <h2 id="history-title">Últimas prendas</h2>
+            <ol id="history-list" class="history-list" aria-label="Seis últimos números sorteados"></ol>
+        </section>
+
+        <section class="board-section" aria-labelledby="board-title">
+            <div class="section-heading">
+                <h2 id="board-title">Painel do Arraiá</h2>
+                <p id="remaining-count">75 prendas no balaio.</p>
+            </div>
+
+            <div id="bingo-board" class="all-balls-grid" aria-label="Painel completo de números do bingo">
+                <div class="letter-column">
+                    <h3>B</h3>
+                    <div id="all-b" class="all-balls"></div>
+                </div>
+                <div class="letter-column">
+                    <h3>I</h3>
+                    <div id="all-i" class="all-balls"></div>
+                </div>
+                <div class="letter-column">
+                    <h3>N</h3>
+                    <div id="all-n" class="all-balls"></div>
+                </div>
+                <div class="letter-column">
+                    <h3>G</h3>
+                    <div id="all-g" class="all-balls"></div>
+                </div>
+                <div class="letter-column">
+                    <h3>O</h3>
+                    <div id="all-o" class="all-balls"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="party-flags bottom-flags" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <div id="rules-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="rules-title" aria-describedby="rules-description">
+        <div class="modal-content">
+            <button id="close-rules-button" class="close-button" type="button" aria-label="Fechar regras">×</button>
+            <h2 id="rules-title">Regras do Arraiá</h2>
+            <p id="rules-description" class="rules-subtitle">Escolha a prenda antes da rodada e confira os jeitos de ganhar.</p>
+
+            <div class="rules-list">
+                <article class="rule-item">
+                    <h3>Quatro cantos</h3>
+                    <p>Marcar os quatro números localizados nos cantos da cartela.</p>
+                    <div class="card-example" aria-label="Exemplo de quatro cantos">
+                        <span class="cell highlighted">11</span><span class="cell">16</span><span class="cell">34</span><span class="cell">54</span><span class="cell highlighted">75</span>
+                        <span class="cell">07</span><span class="cell">18</span><span class="cell">40</span><span class="cell">46</span><span class="cell">65</span>
+                        <span class="cell">09</span><span class="cell">23</span><span class="cell free-space">SÔ</span><span class="cell">51</span><span class="cell">71</span>
+                        <span class="cell">04</span><span class="cell">20</span><span class="cell">39</span><span class="cell">55</span><span class="cell">67</span>
+                        <span class="cell highlighted">13</span><span class="cell">22</span><span class="cell">32</span><span class="cell">60</span><span class="cell highlighted">63</span>
+                    </div>
+                </article>
+
+                <article class="rule-item">
+                    <h3>Quina</h3>
+                    <p>Completar uma linha horizontal inteira.</p>
+                    <div class="card-example" aria-label="Exemplo de quina horizontal">
+                        <span class="cell">11</span><span class="cell">16</span><span class="cell">34</span><span class="cell">54</span><span class="cell">75</span>
+                        <span class="cell">07</span><span class="cell">18</span><span class="cell">40</span><span class="cell">46</span><span class="cell">65</span>
+                        <span class="cell">09</span><span class="cell">23</span><span class="cell free-space">SÔ</span><span class="cell">51</span><span class="cell">71</span>
+                        <span class="cell highlighted">04</span><span class="cell highlighted">20</span><span class="cell highlighted">39</span><span class="cell highlighted">55</span><span class="cell highlighted">67</span>
+                        <span class="cell">13</span><span class="cell">22</span><span class="cell">32</span><span class="cell">60</span><span class="cell">63</span>
+                    </div>
+                </article>
+
+                <article class="rule-item">
+                    <h3>Cartela cheia</h3>
+                    <p>Marcar todos os números da cartela e gritar: <strong>BINGO, SÔ!</strong></p>
+                    <div class="card-example full-card" aria-label="Exemplo de cartela cheia">
+                        <span class="cell highlighted">11</span><span class="cell highlighted">16</span><span class="cell highlighted">34</span><span class="cell highlighted">54</span><span class="cell highlighted">75</span>
+                        <span class="cell highlighted">07</span><span class="cell highlighted">18</span><span class="cell highlighted">40</span><span class="cell highlighted">46</span><span class="cell highlighted">65</span>
+                        <span class="cell highlighted">09</span><span class="cell highlighted">23</span><span class="cell free-space highlighted">SÔ</span><span class="cell highlighted">51</span><span class="cell highlighted">71</span>
+                        <span class="cell highlighted">04</span><span class="cell highlighted">20</span><span class="cell highlighted">39</span><span class="cell highlighted">55</span><span class="cell highlighted">67</span>
+                        <span class="cell highlighted">13</span><span class="cell highlighted">22</span><span class="cell highlighted">32</span><span class="cell highlighted">60</span><span class="cell highlighted">63</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <div id="confetti-layer" class="confetti-layer" aria-hidden="true"></div>
+    <script src="script.js"></script>
+</body>
+</html>
