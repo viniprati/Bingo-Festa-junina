@@ -23,6 +23,7 @@ html {
 }
 
 body {
+    position: relative;
     min-height: 100vh;
     margin: 0;
     color: var(--ink);
@@ -424,7 +425,7 @@ h3 {
 }
 
 .party-flags {
-    position: fixed;
+    position: absolute;
     left: 50%;
     z-index: 5;
     display: flex;
@@ -485,7 +486,7 @@ h3 {
 }
 
 .diagonal-flags {
-    position: fixed;
+    position: absolute;
     z-index: 1;
     display: flex;
     align-items: flex-start;
